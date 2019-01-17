@@ -12,7 +12,7 @@ function buildMetadata(sample) {
   // tags for each key-value in the metadata.
   d3.json(metadataURL).then(function (data) {
       Object.entries(data).forEach(([key, value]) => {
-        panelMetadata.append("h6").text(`${key}: ${value}`
+        panelMetadata.append("h5").text(`${key}: ${value}`
         );
       })
 
@@ -43,21 +43,21 @@ let layout = {
   height: 600,
   width: 1500
 };
-
-Plotly.newPlot('bubble', trace1, layout);    
+Plotly.newPlot("bubble", trace1, layout); 
+   
 //  @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
     let data = [{
-      values: data.sample_values.slice(0, 10),
-      labels: data.otu_ids.slice(0, 10),
-      hovertext: data.otu_labels.slice(0, 10),
-      type: 'pie',
+      values: data.sample_values.slice[0, 10],
+      labels: data.otu_ids.slice[0, 10],
+      hovertext: data.otu_labels.slice[0, 10],
+      type: "pie",
     }];
     let layout = {
       showlegend: true,
     };
-    Plotly.newPlot('pie', data, layout);
+    Plotly.newPlot("pie", data, layout);
 
     }
   )}
