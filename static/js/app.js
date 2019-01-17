@@ -12,7 +12,7 @@ function buildMetadata(sample) {
   // tags for each key-value in the metadata.
   d3.json(metadataURL).then(function (data) {
       Object.entries(data).forEach(([key, value]) => {
-        panelMetadata.append("h5").text(`${key}: ${value}`
+        panelMetadata.append("h6").text(`${key}: ${value}`
         );
       })
 
