@@ -1,10 +1,10 @@
 function buildMetadata(sample) {
 
-  // @TODO: Complete the following function that builds the metadata panel
+  // @TODO: Compvare the following function that builds the metadata panel
   // Use `d3.json` to fetch the metadata for a sample
-  let metadataURL = "/metadata/" + sample;
+  var metadataURL = "/metadata/" + sample;
   // Use d3 to select the panel with id of `#sample-metadata`
-  let panelMetadata = d3.select("#sample-metadata");
+  var panelMetadata = d3.select("#sample-metadata");
   // Use `.html("") to clear any existing metadata
   panelMetadata.html("");
   // Use `Object.entries` to add each key and value pair to the panel
@@ -15,7 +15,8 @@ function buildMetadata(sample) {
         panelMetadata.append("h6").text(`${key}: ${value}`
         );
       })
-
+    }
+  )}
   // BONUS: Build the Gauge Chart
   // buildGauge(data.WFREQ);
 
@@ -23,10 +24,10 @@ function buildMetadata(sample) {
 function buildCharts(sample) {
 
   // @TODO: Use `d3.json` to fetch the sample data for the plots
-  let chartsURL = "/samples/" + sample;
+  var chartsURL = "/samples/" + sample;
   d3.json(chartsURL).then(function (data) {
   // @TODO: Build a Bubble Chart using the sample data
-  let trace1 = {
+  var trace1 = {
     x: data.otu_ids,
     y: data.sample_values,
     mode: 'markers',
@@ -37,8 +38,8 @@ function buildCharts(sample) {
       colorscale: "Earth"
     }
   };
-let trace1 = [trace1];
-let layout = {
+var trace1 = [trace1];
+var layout = {
   showlegend: false,
   height: 600,
   width: 1500
@@ -48,13 +49,13 @@ Plotly.newPlot("bubble", trace1, layout);
 //  @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
-    let data = [{
+    var data = [{
       values: data.sample_values.slice[0, 10],
       labels: data.otu_ids.slice[0, 10],
       hovertext: data.otu_labels.slice[0, 10],
       type: "pie",
     }];
-    let layout = {
+    var layout = {
       showlegend: true,
     };
     Plotly.newPlot("pie", data, layout);
@@ -64,7 +65,7 @@ Plotly.newPlot("bubble", trace1, layout);
 
   function init() {
     // Grab a reference to the dropdown select element
-    let selector = d3.select("#selDataset");
+    var selector = d3.select("#selDataset");
 
     // Use the list of sample names to populate the select options
     d3.json("/names").then((sampleNames) => {
