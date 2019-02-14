@@ -1,5 +1,3 @@
 # Belly_Button_Biodiversity
-Assignment 12 (d3js/plotly/visualization) 
-
-Link to webpage: 
-
+ 
+Interactive dashboard to explore belly button biodiversity by sample in the dataset.
